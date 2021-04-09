@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Forget Password</title>
+ 
+    <link rel="stylesheet" type="text/css" href="login.css"/>
+    <script type="text/javascript" src="../src/forget_pwd.js"></script>
+</head>
+ 
+<body>
+<div id="login_frame">
+  
+    <form method="post" action="../src/forget_pwd.js">
+ 
+        <p><label class="label_input">UserName</label><input type="text" id="username_pwd" class="text_field"/></p>
+        <p><label class="label_input">Password</label><input type="text" id="password_pwd" class="text_field"/></p>
+        <p><label class="label_input">Confirm</label><input type="text" id="confirm_pwd" class="text_field"/></p>
+ 
+        <div id="login_control">
+            <input type="button" id="btn_pwd" value="Update" onclick="change_pwd();"/>
+        </div>
+    </form>
+</div>
+ 
+</body>
+</html>

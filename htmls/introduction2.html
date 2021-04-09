@@ -1,0 +1,61 @@
+<html>
+<head>
+<title>Introduction1</title> 
+<body style="height: 100%; margin: 0;">
+	<div id="Layer1"
+		style="position: fixed; width: 100%; height: 100%; z-index: -1">
+		<img src="../photos/introduction.png" height="100%" width="100%" />
+	</div>
+</body>
+</head>
+
+<style>
+.content{
+    font-size: 30px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.content_text{
+    margin-top: 100px;
+}
+.flex-container{
+    display: flex;
+     margin-left: 70%;
+    font-size: 100%;
+}
+.flex-container > div {
+    margin: 10px;
+    padding: 20px;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+</style>
+
+<div class="content">
+    <br>
+    <div class="content_text">
+        We also made a system to collect new data as we interact with users to increase our database.
+        This database will have more information than the one we first have. We will retrain the 
+        model periodically so that the model contains the latest and the most information. 
+    </div>
+    <br>
+    <div>
+        The model training time does not take long, we will retrain the model every day for getting a 
+        higher accuracy. After training the data, we will update the database for the consistance.
+    </div>
+    <br>
+
+</div>
+<br>
+<div class="flex-container">
+    <div id="back" onclick="window.open(html_id('introduction1.html'),'_self')">
+        Back
+    </div>
+    <div id="next" onclick="window.open(html_id('../homepage.html'),'_self')">
+        Next
+    </div>
+</div>
+
+<script type="text/javascript" src='../src/main.js'></script>
+</html>

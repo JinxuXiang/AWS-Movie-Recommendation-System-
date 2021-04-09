@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>HomePage</title> 
+<body style="height: 100%; margin: 0;">
+	<div id="Layer1"
+		style="position: absolute; width: 100%; height: 100%; z-index: -1">
+		<img src="photos/homepage.png" height="100%" width="100%" />
+	</div>
+</body>
+</head>
+
+<style>
+.title_text{
+    text-align:center; 
+    font-size: 100%;
+}
+.title_title{
+    text-align:center; 
+    font-size: 70px;
+    font-weight: bold;
+}
+.title_subtitle{
+    text-align:center; 
+    font-size: 40px;
+}
+.title_author{
+    text-align:center; 
+    font-size: 30px;
+}
+.content{
+    font-size: 100%;
+    margin-left: 200px;
+    font-weight: bold;
+}
+.content_text{
+    font-size: 40px;
+    margin-top: 50px;
+}
+
+</style>
+
+<div class="title_text">
+    <div class="title_title">
+        6998 Final Project
+    </div>
+    <div class="title_subtitle">
+        Movie Recommendation System
+    </div>
+    <div class="title_author">
+        Vikki Sui(ks3747), Jinxu Xiang(jx2399), Yuyang Zhu(yz3691)
+    </div>
+</div>
+
+<div class='content'>
+    <div class='content_text' onclick="window.open(html_id('htmls/introduction1.html'),'_self')">
+        Introduction
+    </div>
+    <div class='content_text' onclick="window.open(html_id('htmls/chat.html'),'_self')">
+        Chatbot
+    </div>
+    <div class='content_text' onclick="go_user_infor()">
+        User Information
+    </div>
+    <div class='content_text' onclick="go_recommen()">
+        Recommendation
+    </div>
+
+</div>
+
+<script type="text/javascript" src='./src/main.js'></script>
+<script type="text/javascript" src='./src/homepage.js'></script>
+</html>

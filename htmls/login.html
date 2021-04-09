@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+ 
+    <link rel="stylesheet" type="text/css" href="login.css"/>
+    <script type="text/javascript" src="../src/login.js"></script>
+</head>
+ 
+<body>
+<div id="login_frame">
+  
+    <form method="post" action="../src/login.js">
+ 
+        <p><label class="label_input">UserName</label><input type="text" id="username_login" class="text_field"/></p>
+        <p><label class="label_input">Password</label><input type="text" id="password_login" class="text_field"/></p>
+ 
+        <div id="login_control">
+            <input type="button" id="btn_login" value="Login" onclick="login();"/>
+            <a id="forget_pwd" href="./forget_pwd.html">Forget Password？</a>
+            <a id="sign_up" href="./sign_up.html">New User</a>
+            
+        </div>
+    </form>
+</div>
+ 
+</body>
+
+
+<script type="text/javascript" src='../src/main.js'></script>
+
+</html>
+
+
