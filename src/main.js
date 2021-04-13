@@ -30,7 +30,6 @@ function parseData(data){
     lbreak.forEach(res => {
         csvData.push(res.split(","));
     });
-    console.table(csvData)
     return csvData
 }
 
