@@ -21,8 +21,6 @@ function login() {
             Find_user = false
             
             for (var i = 0; i < csv_data.length; i++) {
-                console.log(csv_data[i][2], username)
-                console.log(csv_data[i][3], pass)
                 if (csv_data[i][2] == username.value && csv_data[i][3] == pass.value){
                     
                     window.location.href="user.html?user="+username.value+"&pass="+pass.value;
