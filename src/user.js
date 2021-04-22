@@ -16,6 +16,18 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 break
             }
         }
+        var params = {q: {"userId":  csv_data[i][1]}};
+        console.log(params)
+        apigClient.watchinghistoryGet(params, {}, {}).then(function(result){
+            //This is where you would put a success callback
+            console.log(result);
+            
+            
+            }).catch(function(result){
+            //This is where you would put an error callback
+            console.log(result);
+            });
     }        
 });
+
 
