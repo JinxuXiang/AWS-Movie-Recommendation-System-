@@ -6,6 +6,7 @@ var IdentityPoolId = "us-east-1:e17babc6-01d7-471d-9939-a50af3727eb7"
 // keep user login
 function html_id(str){
     str += location.search
+
     return str
 }
 
@@ -53,11 +54,46 @@ function extra_user(){
         temp = parameters[1].split("=");
         var now_user_pwd = unescape(temp[1]);
 
-        console.log(now_user_name)
-        console.log(now_user_pwd)
+        console.log("Username:" + now_user_name)
+        console.log("Password:" + now_user_pwd)
         return [now_user_name, now_user_pwd]
     }
     else{
         return [null, null]
     }
 }
+
+function extra_movie(){
+    
+    if (location.search != ''){
+        console.log(location.search)
+        var parameters = location.search.substring(1).split("&");
+
+        var temp = parameters[0].split("=");
+        var now_user_name = unescape(temp[1]);
+        temp = parameters[1].split("=");
+        var now_user_pwd = unescape(temp[1]);
+        temp = parameters[2].split("=");
+        var now_movie_id = unescape(temp[1]);
+        temp = parameters[3].split("=");
+        var last_page = unescape(temp[1]);
+
+        console.log("Username:" + now_user_name)
+        console.log("Password:" + now_user_pwd)
+        console.log("Movie ID:" + now_movie_id)
+        console.log("Last Page:" + last_page)
+        return [now_user_name, now_user_pwd, now_movie_id, last_page]
+    }
+    else{
+        return [null, null, null, null]
+    }
+}
+
+// Go to movie.html when click a movie
+
+function click_movie(movieId, last_page){
+    return function goto_movie(){
+        window.location.href=html_id("movie.html") +  "&movieId=" + movieId.toString() + "&lastPage=" + last_page
+    }
+}
+

@@ -3,6 +3,11 @@ var user_csv = {Bucket: storage_bucket, Key: 'user_pro.csv'}
 var csv_data;
 var [now_user_name, now_user_pwd] = extra_user()
 console.log("user "+now_user_name)
+
+
+
+
+
 new AWS.S3().getObject(user_csv, function(err, data)
 {
     if (!err){
@@ -31,6 +36,7 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
                 div.innerHTML = now_data["movieName"]
+                div.onclick = click_movie(now_data["movieId"], "user")
                 document.getElementById("watch_history").appendChild(div);
             }
             
@@ -49,6 +55,7 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
                 div.innerHTML = now_data["movieName"]
+                div.onclick = click_movie(now_data["movieId"], "user")
                 document.getElementById("watch_list").appendChild(div);
             }
             

@@ -51,6 +51,7 @@ promise_get_user.then( () => {
                     if (recommended_list.includes(csv_data[i][1])){
                         var div = document.createElement('div');
                         div.innerHTML = csv_data[i][2].substring(1)
+                        div.onclick = click_movie(csv_data[i][1], "recommendation")
                         document.getElementById("recommendation").appendChild(div);
                     }
                 }
