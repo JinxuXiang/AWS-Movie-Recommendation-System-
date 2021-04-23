@@ -155,6 +155,42 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.recommendedmovieGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userName'], ['body']);
+        
+        var recommendedmovieGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendedmovie').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userName']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendedmovieGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendedmovieOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var recommendedmovieOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendedmovie').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendedmovieOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.watchinghistoryGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

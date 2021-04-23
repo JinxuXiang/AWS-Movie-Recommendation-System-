@@ -8,6 +8,37 @@ var now_user_id;
 console.log("user "+now_user_name)
 
 
+var apigClient = apigClientFactory.newClient();
+var params = {userName: now_user_name};
+console.log(params)
+
+apigClient.recommendedmovieGet(params, {}, {}).then(function(result){
+
+    console.log("Recommended Movie")
+    console.log(result);
+    num_of_result = Object.keys(result["data"]).length
+    for (i = 0; i < Math.min(5, num_of_result); i++){
+        result_str = "result_" + i.toString()
+        now_data = result["data"][result_str]
+        var div = document.createElement('div');
+        div.innerHTML = now_data["movieName"]
+        div.onclick = click_movie(now_data["movieId"], "recommendation")
+        document.getElementById("recommendation").appendChild(div);
+    }
+    
+}).catch(function(result){
+//This is where you would put an error callback
+console.log(result);
+});
+
+
+
+
+
+
+
+
+/*
 var get_user = new AWS.S3().getObject(user_csv, function(err, data)
 {
     if (!err){
@@ -61,5 +92,5 @@ promise_get_user.then( () => {
     })
     
 })
-
+*/
 
