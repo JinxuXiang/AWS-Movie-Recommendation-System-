@@ -191,6 +191,60 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.ratingGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId', 'movieId'], ['body']);
+        
+        var ratingGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/rating').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId', 'movieId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(ratingGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.ratingPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId', 'movieId', 'rating'], ['body']);
+        
+        var ratingPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/rating').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId', 'movieId', 'rating']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(ratingPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.ratingOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var ratingOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/rating').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(ratingOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.recommendedmovieGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

@@ -97,3 +97,9 @@ function click_movie(movieId, last_page){
     }
 }
 
+function click_rating(movieId, last_page){
+    return function goto_movie(){
+        window.location.href=html_id("rating.html") +  "&movieId=" + movieId.toString() + "&lastPage=" + last_page
+    }
+}
+

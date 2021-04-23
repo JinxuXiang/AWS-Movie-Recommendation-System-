@@ -68,7 +68,7 @@ apigClient.movieGet(params, {}, {}).then(function(result){
     document.getElementById("MovieYearContent").innerHTML= movie_year
 
 
-    for (i = 0; i < Math.min(5, num_of_result); i++){
+    for (i = 0; i < Math.min(10, num_of_result); i++){
         result_str = "result_" + i.toString()
         now_data = result["data"][result_str]
         var div = document.createElement('div');
@@ -130,7 +130,7 @@ function insert_watchinghistory(){
     //This is where you would put an error callback
     console.log(result);
     });
-    
+    click_rating(now_movie_id, "movie")()
 }
 
 
