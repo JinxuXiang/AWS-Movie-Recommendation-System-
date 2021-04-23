@@ -83,6 +83,42 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.checkwatchinglistGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId', 'movieId'], ['body']);
+        
+        var checkwatchinglistGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/checkwatchinglist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId', 'movieId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(checkwatchinglistGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.checkwatchinglistOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var checkwatchinglistOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/checkwatchinglist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(checkwatchinglistOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.friendGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -191,6 +227,42 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.useridGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userName'], ['body']);
+        
+        var useridGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/userid').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userName']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(useridGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.useridOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var useridOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/userid').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(useridOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.watchinghistoryGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -206,6 +278,24 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(watchinghistoryGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.watchinghistoryPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId', 'movieId'], ['body']);
+        
+        var watchinghistoryPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/watchinghistory').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId', 'movieId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(watchinghistoryPostRequest, authType, additionalParams, config.apiKey);
     };
     
     
@@ -242,6 +332,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(watchinglistGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.watchinglistPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId', 'movieId'], ['body']);
+        
+        var watchinglistPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/watchinglist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId', 'movieId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(watchinglistPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.watchinglistDelete = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId', 'movieId'], ['body']);
+        
+        var watchinglistDeleteRequest = {
+            verb: 'delete'.toUpperCase(),
+            path: pathComponent + uritemplate('/watchinglist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId', 'movieId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(watchinglistDeleteRequest, authType, additionalParams, config.apiKey);
     };
     
     

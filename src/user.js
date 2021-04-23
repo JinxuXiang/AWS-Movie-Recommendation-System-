@@ -31,7 +31,7 @@ new AWS.S3().getObject(user_csv, function(err, data)
             console.log("Watching History")
             console.log(result);
             num_of_result = Object.keys(result["data"]).length
-            for (i = 0; i < Math.min(5, num_of_result); i++){
+            for (i = 0; i < Math.min(8, num_of_result); i++){
                 result_str = "result_" + i.toString()
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
@@ -40,17 +40,17 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 document.getElementById("watch_history").appendChild(div);
             }
             
-            }).catch(function(result){
-            //This is where you would put an error callback
-            console.log(result);
-            });
+        }).catch(function(result){
+        //This is where you would put an error callback
+        console.log(result);
+        });
 
         apigClient.watchinglistGet(params, {}, {}).then(function(result){
 
             console.log("Watching List")
             console.log(result);
             num_of_result = Object.keys(result["data"]).length
-            for (i = 0; i < Math.min(5, num_of_result); i++){
+            for (i = 0; i < Math.min(20, num_of_result); i++){
                 result_str = "result_" + i.toString()
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
@@ -59,11 +59,11 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 document.getElementById("watch_list").appendChild(div);
             }
             
-            }).catch(function(result){
-            //This is where you would put an error callback
-            console.log(result);
-            });
-        
+        }).catch(function(result){
+        //This is where you would put an error callback
+        console.log(result);
+        });
+    
         apigClient.friendGet(params, {}, {}).then(function(result){
 
             console.log("Friend")
@@ -77,10 +77,10 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 document.getElementById("friends").appendChild(div);
             }
             
-            }).catch(function(result){
-            //This is where you would put an error callback
-            console.log(result);
-            });
+        }).catch(function(result){
+        //This is where you would put an error callback
+        console.log(result);
+        });
     }        
 });
 
