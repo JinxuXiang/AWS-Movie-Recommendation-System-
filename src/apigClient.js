@@ -83,16 +83,52 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.friendGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId'], ['body']);
+        
+        var friendGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/friend').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(friendGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.friendOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var friendOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/friend').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(friendOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.watchinghistoryGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
-        apiGateway.core.utils.assertParametersDefined(params, ['q'], ['body']);
+        apiGateway.core.utils.assertParametersDefined(params, ['userId'], ['body']);
         
         var watchinghistoryGetRequest = {
             verb: 'get'.toUpperCase(),
             path: pathComponent + uritemplate('/watchinghistory').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
             headers: apiGateway.core.utils.parseParametersToObject(params, []),
-            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['q']),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId']),
             body: body
         };
         
@@ -116,6 +152,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(watchinghistoryOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.watchinglistGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId'], ['body']);
+        
+        var watchinglistGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/watchinglist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(watchinglistGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.watchinglistOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var watchinglistOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/watchinglist').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(watchinglistOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
 
