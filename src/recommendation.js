@@ -14,14 +14,38 @@ apigClient.recommendedmovieGet(params, {}, {}).then(function(result){
     console.log("Recommended Movie")
     console.log(result);
     num_of_result = Object.keys(result["data"]).length
-    for (i = 0; i < Math.min(5, num_of_result); i++){
-        result_str = "result_" + i.toString()
-        now_data = result["data"][result_str]
-        var div = document.createElement('div');
-        div.innerHTML = now_data["movieName"]
-        div.onclick = click_movie(now_data["movieId"], "recommendation")
-        document.getElementById("recommendation").appendChild(div);
+    if (num_of_result == 0){
+        var params = {n:5}
+        apigClient.randommovieGet(params, {}, {}).then(function(result){
+
+            console.log("Random Movie")
+            console.log(result);
+            num_of_result = Object.keys(result["data"]).length
+            for (i = 0; i < num_of_result; i++){
+                result_str = "result_" + i.toString()
+                now_data = result["data"][result_str]
+                var div = document.createElement('div');
+                div.innerHTML = now_data["movieName"]
+                div.onclick = click_movie(now_data["movieId"], "recommendation")
+                document.getElementById("recommendation").appendChild(div);
+            }
+            
+        }).catch(function(result){
+        //This is where you would put an error callback
+        console.log(result);
+        });
     }
+    else{
+        for (i = 0; i < Math.min(5, num_of_result); i++){
+            result_str = "result_" + i.toString()
+            now_data = result["data"][result_str]
+            var div = document.createElement('div');
+            div.innerHTML = now_data["movieName"]
+            div.onclick = click_movie(now_data["movieId"], "recommendation")
+            document.getElementById("recommendation").appendChild(div);
+        }
+    }
+
     
 }).catch(function(result){
 //This is where you would put an error callback
@@ -34,14 +58,38 @@ apigClient.recommendeduserGet(params, {}, {}).then(function(result){
     console.log("Recommended User")
     console.log(result);
     num_of_result = Object.keys(result["data"]).length
-    for (i = 0; i < Math.min(5, num_of_result); i++){
-        result_str = "result_" + i.toString()
-        now_data = result["data"][result_str]
-        var div = document.createElement('div');
-        div.innerHTML = now_data["userName"]
-        div.onclick = click_friend(now_data["userId2"], "recommendation")
-        document.getElementById("friend_recommendation").appendChild(div);
+    if (num_of_result == 0){
+        var params = {n:5}
+        apigClient.randomuserGet(params, {}, {}).then(function(result){
+
+            console.log("Random Friend")
+            console.log(result);
+            num_of_result = Object.keys(result["data"]).length
+            for (i = 0; i < num_of_result; i++){
+                result_str = "result_" + i.toString()
+                now_data = result["data"][result_str]
+                var div = document.createElement('div');
+                div.innerHTML = now_data["userName"]
+                div.onclick = click_friend(now_data["userId"], "recommendation")
+                document.getElementById("friend_recommendation").appendChild(div);
+            }
+            
+        }).catch(function(result){
+        //This is where you would put an error callback
+        console.log(result);
+        });
     }
+    else{
+        for (i = 0; i < Math.min(5, num_of_result); i++){
+            result_str = "result_" + i.toString()
+            now_data = result["data"][result_str]
+            var div = document.createElement('div');
+            div.innerHTML = now_data["userName"]
+            div.onclick = click_friend(now_data["userId2"], "recommendation")
+            document.getElementById("friend_recommendation").appendChild(div);
+        }
+    }
+
     
 }).catch(function(result){
 //This is where you would put an error callback

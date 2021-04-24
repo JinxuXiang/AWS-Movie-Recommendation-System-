@@ -299,6 +299,78 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.randommovieGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['n'], ['body']);
+        
+        var randommovieGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/randommovie').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['n']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(randommovieGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.randommovieOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var randommovieOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/randommovie').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(randommovieOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.randomuserGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['n'], ['body']);
+        
+        var randomuserGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/randomuser').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['n']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(randomuserGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.randomuserOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var randomuserOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/randomuser').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(randomuserOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.ratingGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -422,6 +494,78 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(recommendeduserOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.signinGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userName', 'userPass'], ['body']);
+        
+        var signinGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/signin').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userName', 'userPass']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(signinGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.signinOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var signinOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/signin').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(signinOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.signupPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userName', 'userPass'], ['body']);
+        
+        var signupPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/signup').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userName', 'userPass']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(signupPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.signupOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var signupOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/signup').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(signupOptionsRequest, authType, additionalParams, config.apiKey);
     };
     
     
