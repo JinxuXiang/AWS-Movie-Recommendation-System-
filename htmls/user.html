@@ -9,7 +9,17 @@
 </body>
 </head>
 
+
 <style>
+#wl_pagin li {
+  display: inline-block;
+}
+#wh_pagin li {
+  display: inline-block;
+}
+#fr_pagin li {
+  display: inline-block;
+}
 .content{
     margin-left: 150px;
     margin-right: 150px;
@@ -70,15 +80,17 @@
         <div class="text" id="friends">
 
         </div>
+        <ul id="fr_pagin">
+        </ul>
     </div>
     <div class="block">
         <div class="title">
             Watching List:
         </div>
         <div class="text" id="watch_list">
-
         </div>
-
+        <ul id="wl_pagin">
+    </ul>
     </div>
     <div class="block">
         <div class="title">
@@ -87,6 +99,8 @@
         <div class="text" id="watch_history">
             
         </div>
+        <ul id="wh_pagin">
+        </ul>
     </div>
     <div class="subtitle" onclick="window.open('../homepage.html','_self')">
         Log Out
