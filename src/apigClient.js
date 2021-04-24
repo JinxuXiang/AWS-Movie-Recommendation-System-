@@ -83,6 +83,42 @@ apigClientFactory.newClient = function (config) {
     
     
     
+    apigClient.checkfriendGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId1', 'userId2'], ['body']);
+        
+        var checkfriendGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/checkfriend').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId1', 'userId2']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(checkfriendGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.checkfriendOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var checkfriendOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/checkfriend').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(checkfriendOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.checkwatchinglistGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         
@@ -134,6 +170,42 @@ apigClientFactory.newClient = function (config) {
         
         
         return apiGatewayClient.makeRequest(friendGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.friendPost = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId1', 'userId2', 'status'], ['body']);
+        
+        var friendPostRequest = {
+            verb: 'post'.toUpperCase(),
+            path: pathComponent + uritemplate('/friend').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId1', 'userId2', 'status']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(friendPostRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.friendDelete = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId1', 'userId2'], ['body']);
+        
+        var friendDeleteRequest = {
+            verb: 'delete'.toUpperCase(),
+            path: pathComponent + uritemplate('/friend').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId1', 'userId2']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(friendDeleteRequest, authType, additionalParams, config.apiKey);
     };
     
     
