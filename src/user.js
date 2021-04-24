@@ -6,8 +6,6 @@ console.log("user "+now_user_name)
 
 
 
-
-
 new AWS.S3().getObject(user_csv, function(err, data)
 {
     if (!err){
@@ -74,6 +72,7 @@ new AWS.S3().getObject(user_csv, function(err, data)
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
                 div.innerHTML = now_data["userName"]
+                div.onclick = click_friend(now_data["userId"], "user")
                 document.getElementById("friends").appendChild(div);
             }
             

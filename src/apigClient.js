@@ -155,6 +155,42 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.friendinfoGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userId'], ['body']);
+        
+        var friendinfoGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/friendinfo').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userId']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(friendinfoGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.friendinfoOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var friendinfoOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/friendinfo').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(friendinfoOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.movieGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

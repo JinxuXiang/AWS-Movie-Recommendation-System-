@@ -1,12 +1,17 @@
-var [now_user_name, now_user_pwd, now_movie_id, last_page] = extra_movie()
+var [now_user_name, now_user_pwd, now_movie_id, last_page, now_movie2, last_page2] = extra_movie()
 console.log("user "+now_user_name)
 function click_back(last_page){
     return function goback(){
-        if (last_page == "user"){
-            window.location.href="user.html?user=" + now_user_name + "&pass=" + now_user_pwd 
+        if (last_page2 == "friend"){
+            window.location.href="friend.html?user=" + now_user_name + "&pass=" + now_user_pwd  + "&friendId=" + now_movie_id + "&lastPage=" + last_page
         }
-        else if (last_page == "recommendation"){
-            window.location.href="recommendation.html?user=" + now_user_name + "&pass=" + now_user_pwd 
+        else{
+            if (last_page == "user"){
+                window.location.href="user.html?user=" + now_user_name + "&pass=" + now_user_pwd 
+            }
+            else if (last_page == "recommendation"){
+                window.location.href="recommendation.html?user=" + now_user_name + "&pass=" + now_user_pwd 
+            }
         }
     }
 }

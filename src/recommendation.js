@@ -1,8 +1,5 @@
 // Find User Name from S3
-var user_csv = {Bucket: storage_bucket, Key: 'user_pro.csv'};
-var recommended_csv = {Bucket: storage_bucket, Key: 'recommended_movies.csv'};
-var movie_csv = {Bucket: storage_bucket, Key: 'movies_pro.csv'};
-var csv_data;
+
 var [now_user_name, now_user_pwd] = extra_user();
 var now_user_id;
 console.log("user "+now_user_name)
@@ -39,6 +36,11 @@ console.log(result);
 
 
 /*
+var user_csv = {Bucket: storage_bucket, Key: 'user_pro.csv'};
+var recommended_csv = {Bucket: storage_bucket, Key: 'recommended_movies.csv'};
+var movie_csv = {Bucket: storage_bucket, Key: 'movies_pro.csv'};
+var csv_data;
+
 var get_user = new AWS.S3().getObject(user_csv, function(err, data)
 {
     if (!err){

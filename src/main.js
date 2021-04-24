@@ -82,6 +82,18 @@ function extra_movie(){
         console.log("Password:" + now_user_pwd)
         console.log("Movie ID:" + now_movie_id)
         console.log("Last Page:" + last_page)
+
+        if (parameters.length > 4){
+            temp = parameters[4].split("=");
+            var now_movie_id2 = unescape(temp[1]);
+            temp = parameters[5].split("=");
+            var last_page2 = unescape(temp[1]);
+            return [now_user_name, now_user_pwd, now_movie_id, last_page, now_movie_id2, last_page2]
+        }
+
+
+
+
         return [now_user_name, now_user_pwd, now_movie_id, last_page]
     }
     else{
@@ -100,6 +112,12 @@ function click_movie(movieId, last_page){
 function click_rating(movieId, last_page){
     return function goto_movie(){
         window.location.href=html_id("rating.html") +  "&movieId=" + movieId.toString() + "&lastPage=" + last_page
+    }
+}
+
+function click_friend(friendId, last_page){
+    return function goto_movie(){
+        window.location.href=html_id("friend.html") +  "&friendId=" + friendId.toString() + "&lastPage=" + last_page
     }
 }
 
