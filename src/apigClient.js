@@ -389,6 +389,42 @@ apigClientFactory.newClient = function (config) {
     };
     
     
+    apigClient.recommendeduserGet = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, ['userName'], ['body']);
+        
+        var recommendeduserGetRequest = {
+            verb: 'get'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendeduser').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, ['userName']),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendeduserGetRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
+    apigClient.recommendeduserOptions = function (params, body, additionalParams) {
+        if(additionalParams === undefined) { additionalParams = {}; }
+        
+        apiGateway.core.utils.assertParametersDefined(params, [], ['body']);
+        
+        var recommendeduserOptionsRequest = {
+            verb: 'options'.toUpperCase(),
+            path: pathComponent + uritemplate('/recommendeduser').expand(apiGateway.core.utils.parseParametersToObject(params, [])),
+            headers: apiGateway.core.utils.parseParametersToObject(params, []),
+            queryParams: apiGateway.core.utils.parseParametersToObject(params, []),
+            body: body
+        };
+        
+        
+        return apiGatewayClient.makeRequest(recommendeduserOptionsRequest, authType, additionalParams, config.apiKey);
+    };
+    
+    
     apigClient.useridGet = function (params, body, additionalParams) {
         if(additionalParams === undefined) { additionalParams = {}; }
         

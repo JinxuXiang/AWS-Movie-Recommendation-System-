@@ -38,12 +38,12 @@ apigClient.useridGet(params, {}, {}).then(function(result){
             status = result["data"]["result_0"]["status"]
             if (status == "Friend"){
                 document.getElementById("friend").innerHTML = "Delete Friend"
-                document.getElementById("friend").onclick = delete_friend(user_id, now_friend_id)
+                document.getElementById("friend").onclick = delete_friend(user_id, now_friend_id, "Friend")
                 document.getElementById("blacklist").innerHTML = ""
             }
             else if (status == "Blacklist"){
                 document.getElementById("blacklist").innerHTML = "Delete From Blacklist"
-                document.getElementById("blacklist").onclick = delete_friend(user_id, now_friend_id)
+                document.getElementById("blacklist").onclick = delete_friend(user_id, now_friend_id, "Blacklist")
                 document.getElementById("friend").innerHTML = ""
             }
         }
@@ -101,11 +101,11 @@ function insert_friend(user_id, friend_id, status){
             console.log(result);
             if (status == "Friend"){
                 document.getElementById("friend").innerHTML= "Delete Friend"
-                document.getElementById("friend").onclick = delete_friend(user_id, friend_id)
+                document.getElementById("friend").onclick = delete_friend(user_id, friend_id, "Friend")
             }
             else if (status == "Blacklist"){
                 document.getElementById("blacklist").innerHTML= "Delete From Blacklist"
-                document.getElementById("blacklist").onclick = delete_friend(user_id, friend_id)
+                document.getElementById("blacklist").onclick = delete_friend(user_id, friend_id, "Blacklist")
             }
             
         }).catch(function(result){
@@ -116,7 +116,7 @@ function insert_friend(user_id, friend_id, status){
     
 }
 
-function delete_friend(user_id, friend_id){
+function delete_friend(user_id, friend_id, status){
     return function insert(){
         console.log("Delete Friend from RDS")
         var params = {userId1: user_id, userId2: friend_id}
