@@ -21,7 +21,7 @@ apigClient.recommendedmovieGet(params, {}, {}).then(function(result){
             console.log("Random Movie")
             console.log(result);
             num_of_result = Object.keys(result["data"]).length
-            for (i = 0; i < num_of_result; i++){
+            for (i = 0; i < Math.min(5, num_of_result); i++){
                 result_str = "result_" + i.toString()
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
@@ -65,7 +65,7 @@ apigClient.recommendeduserGet(params, {}, {}).then(function(result){
             console.log("Random Friend")
             console.log(result);
             num_of_result = Object.keys(result["data"]).length
-            for (i = 0; i < num_of_result; i++){
+            for (i = 0; i < Math.min(5, num_of_result); i++){
                 result_str = "result_" + i.toString()
                 now_data = result["data"][result_str]
                 var div = document.createElement('div');
