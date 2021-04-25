@@ -3,7 +3,7 @@ Transform: 'AWS::Serverless-2016-10-31'
 Description: AI Photo Album Lambda CD
 Resources:
      
-  movieRecommendationChatbotpipeline:
+  movieRecommendationChatbot:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
@@ -20,6 +20,580 @@ Resources:
           Properties:
             Path: /chatbot
             Method: POST
+  
+  projectcheckfriendget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_checkfriend_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /checkfriend
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectcheckwatchinglistget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_checkwatchinglist_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /checkwatchinglist
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectfrienddelete:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_friend_delete
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /friend
+            Method: DELETE
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectfriendget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_friend_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /friend
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectfriendpost:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_friend_post
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /friend
+            Method: POST
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectfriendinfoget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_friendinfo_post
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /friendinfo
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+   
+   projectmovieget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_movie_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /movie
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+          
+  projectrandommovieget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_randommovie_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /randommovie
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+
+  projectrandomuserget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_randomuser_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /randomuser
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d  
+  
+  projectratingget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_rating_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /rating
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectratingpost:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_rating_post
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /rating
+            Method: POST
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectrecommendedmovieget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_recommendedmovie_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /recommendedmovie
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectrecommendeduserget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_recommendeduser_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /recommendeduser
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectsigninget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_signin_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /signin
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectsignuppost:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_signup_post
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /signup
+            Method: POST
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectuseridget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_userid_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /userid
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectwatchinghistoryget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_watchinghistory_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /watchinghistory
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectwatchinghistorypost:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_watchinghistory_post
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /watchinghistory
+            Method: POST
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectwatchinglistdelete:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_watchinglist_delete
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /watchinglist
+            Method: DELETE
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectwatchinglistget:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_watchinglist_get
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /watchinglist
+            Method: GET
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+  
+  projectwatchinglistpost:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/project_watchinglist_post
+      Description: ''
+      MemorySize: 128
+      Timeout: 3
+      Role: 'arn:aws:iam::207598852675:role/service-role/connect_rds-role-udfh9hs5'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /watchinglist
+            Method: POST
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-0115530e
+        SubnetIds:
+          - subnet-a7c6a7f8
+          - subnet-d88aeebe
+          - subnet-391e7c18
+          - subnet-3299ad7f
+          - subnet-96c962a7
+          - subnet-33df813d
+
+  
+  
+  
+  
+  
+  
 
     
 
