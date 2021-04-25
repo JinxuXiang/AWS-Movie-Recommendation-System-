@@ -20,10 +20,6 @@ Resources:
           Properties:
             Path: /chatbot
             Method: POST
-        Api2:
-          Type: Api
-          Properties:
-            Path: /chatbot
-            Method: POST
+
     
 
