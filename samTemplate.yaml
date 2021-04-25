@@ -3,7 +3,7 @@ Transform: 'AWS::Serverless-2016-10-31'
 Description: AI Photo Album Lambda CD
 Resources:
      
-  movieRecommendationChatbot_pipeline:
+  movieRecommendationChatbotpipeline:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
