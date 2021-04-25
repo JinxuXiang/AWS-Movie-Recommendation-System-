@@ -8,7 +8,7 @@ Resources:
     Properties:
       StageName: v1
       Cors: "'*'"
-      DefinitionBody:
+      DefinitionBody: # Pull in an OpenApi definition from S3
         'Fn::Transform':
           Name: 'AWS::Include'
           Parameters:
