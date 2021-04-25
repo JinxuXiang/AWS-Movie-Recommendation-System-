@@ -2,7 +2,18 @@ AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
 Description: Project Pipeline
 Resources:
-
+  
+  ApiGatewayApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: v1
+      Cors: "'*'"
+      DefinitionBody:
+        'Fn::Transform':
+          Name: 'AWS::Include'
+          Parameters:
+            Location: ./backend/api/Movie Recommendation API-v1-swagger.yaml
+  
   movieRecommendationChatbot:
     Type: 'AWS::Serverless::Function'
     Properties:
