@@ -1,5 +1,5 @@
 var checkout = {};
-
+var [now_user_name, now_user_pwd] = extra_user()
 $(document).ready(function() {
   var $messages = $('.messages-content'),
     d, h, m,
@@ -38,16 +38,24 @@ $(document).ready(function() {
   }
 
   function insertMessage() {
-    msg = $('.message-input').val();
+    var msg = $('.message-input').val();
+    var [now_user_name, now_user_pwd] = extra_user()
     if ($.trim(msg) == '') {
       return false;
     }
+    if(now_user_name==null){
+      new_msg = msg + "|null"
+    }
+    else{
+      new_msg = msg + "|" + now_user_name;
+    }
+    console.log(msg)
     $('<div class="message message-personal">' + msg + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     $('.message-input').val(null);
     updateScrollbar();
 
-    callChatbotApi(msg)
+    callChatbotApi(new_msg)
       .then((response) => {
         console.log(response);
         var data = response.data;
@@ -59,6 +67,7 @@ $(document).ready(function() {
 
           for (var message of messages) {
             if (message.type === 'unstructured') {
+              console.log(message.unstructured.text)
               insertResponseMessage(message.unstructured.text);
             } else if (message.type === 'structured' && message.structured.type === 'product') {
               var html = '';
