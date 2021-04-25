@@ -7,7 +7,6 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: v1
-      Cors: "'*'"
       DefinitionUri: ./backend/api/Movie Recommendation API-v1-swagger.yaml
   
   movieRecommendationChatbot:
