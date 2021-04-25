@@ -1,8 +1,8 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: 'AWS::Serverless-2016-10-31'
-Description: AI Photo Album Lambda CD
+Description: Project Pipeline
 Resources:
-     
+
   movieRecommendationChatbot:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -20,7 +20,7 @@ Resources:
           Properties:
             Path: /chatbot
             Method: POST
-  
+
   projectcheckfriendget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -47,7 +47,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectcheckwatchinglistget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -74,7 +74,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectfrienddelete:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -101,7 +101,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectfriendget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -128,7 +128,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectfriendpost:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -155,7 +155,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectfriendinfoget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -182,8 +182,8 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-   
-   projectmovieget:
+
+  projectmovieget:
     Type: 'AWS::Serverless::Function'
     Properties:
       Handler: lambda_function.lambda_handler
@@ -209,7 +209,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-          
+     
   projectrandommovieget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -263,7 +263,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d  
-  
+
   projectratingget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -290,7 +290,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectratingpost:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -317,7 +317,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectrecommendedmovieget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -344,7 +344,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectrecommendeduserget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -371,7 +371,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectsigninget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -398,7 +398,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectsignuppost:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -425,7 +425,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectuseridget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -452,7 +452,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectwatchinghistoryget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -479,7 +479,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectwatchinghistorypost:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -506,7 +506,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectwatchinglistdelete:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -533,7 +533,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectwatchinglistget:
     Type: 'AWS::Serverless::Function'
     Properties:
@@ -560,7 +560,7 @@ Resources:
           - subnet-3299ad7f
           - subnet-96c962a7
           - subnet-33df813d
-  
+
   projectwatchinglistpost:
     Type: 'AWS::Serverless::Function'
     Properties:
