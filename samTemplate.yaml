@@ -161,7 +161,7 @@ Resources:
     Properties:
       Handler: lambda_function.lambda_handler
       Runtime: python3.8
-      CodeUri: ./backend/lambda/project_friendinfo_post
+      CodeUri: ./backend/lambda/project_friendinfo_get
       Description: ''
       MemorySize: 128
       Timeout: 3
