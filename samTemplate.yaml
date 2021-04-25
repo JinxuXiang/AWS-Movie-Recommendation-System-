@@ -3,7 +3,7 @@ Transform: 'AWS::Serverless-2016-10-31'
 Description: Project Pipeline
 Resources:
   
-  ApiGatewayApi:
+  Api1:
     Type: AWS::Serverless::Api
     Properties:
       StageName: v1
