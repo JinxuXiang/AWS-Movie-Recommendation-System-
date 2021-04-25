@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: AI Photo Album Lambda CD
+Resources:
+     
+  movieRecommendationChatbot_pipeline:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: lambda_function.lambda_handler
+      Runtime: python3.8
+      CodeUri: ./backend/lambda/movieRecommendationChatbot
+      Description: ''
+      MemorySize: 128
+      Timeout: 30
+      Role: >-
+        arn:aws:iam::207598852675:role/service-role/movieRecommendationChatbot-role-rma9b0pe
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /chatbot
+            Method: POST
+        Api2:
+          Type: Api
+          Properties:
+            Path: /chatbot
+            Method: POST
+    
+

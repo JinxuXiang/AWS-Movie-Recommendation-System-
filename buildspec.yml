@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - aws cloudformation package --template-file samTemplate.yaml --s3-bucket 6998projectpipeline --output-template-file outputsamtemplate.yaml
+artifacts:
+  type: zip
+  files:
+    - samTemplate.yaml
+    - outputsamtemplate.yaml
