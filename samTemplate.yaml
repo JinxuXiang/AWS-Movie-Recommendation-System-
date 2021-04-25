@@ -8,11 +8,7 @@ Resources:
     Properties:
       StageName: v1
       Cors: "'*'"
-      DefinitionBody: # Pull in an OpenApi definition from S3
-        'Fn::Transform':
-          Name: 'AWS::Include'
-          Parameters:
-            Location: ./backend/api/Movie Recommendation API-v1-swagger.yaml
+      DefinitionUri: ./backend/api/Movie Recommendation API-v1-swagger.yaml
   
   movieRecommendationChatbot:
     Type: 'AWS::Serverless::Function'
