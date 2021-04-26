@@ -12,6 +12,9 @@ function click_back(last_page){
             else if (last_page == "recommendation"){
                 window.location.href="recommendation.html?user=" + now_user_name + "&pass=" + now_user_pwd 
             }
+            else if (last_page == "rating"){
+                window.location.href="rating.html?user=" + now_user_name + "&pass=" + now_user_pwd + "&movieId=" + now_movie_id + "&lastPage=" + "movie"
+            }
         }
     }
 }

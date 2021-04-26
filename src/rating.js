@@ -71,7 +71,41 @@ console.log(result);
 });
 
 
+var params = {movieId: now_movie_id};
+console.log(params)
 
+apigClient.similarmovieGet(params, {}, {}).then(function(result){
+
+    console.log("Similar Movie")
+    console.log(result);
+    num_of_result = Object.keys(result["data"]).length
+    if (num_of_result > 0){
+        document.getElementById("similar_movies").innerHTML = ""
+    }
+    for (i = 0; i < Math.min(10, num_of_result); i++){
+        result_str = "result_" + i.toString()
+        now_data = result["data"][result_str]
+        if (result["data"][result_str]["movieId"] != now_movie_id){
+            var div = document.createElement('div');
+            div.innerHTML = now_data["movieName"]
+            div.onclick = click_rating(now_data["movieId"], "rating")
+            document.getElementById("similar_movies").appendChild(div);
+        }
+        
+    }
+
+    
+}).catch(function(result){
+//This is where you would put an error callback
+console.log(result);
+});
+
+
+function click_rating(movieId, last_page){
+    return function goto_movie(){
+        window.location.href= "movie.html?" + "user=" + now_user_name + "&pass=" + now_user_pwd + "&movieId=" + movieId + "&lastPage=" + last_page
+    }
+}
 
 
 

@@ -82,7 +82,7 @@ function extra_movie(){
         console.log("Password:" + now_user_pwd)
         console.log("Movie ID:" + now_movie_id)
         console.log("Last Page:" + last_page)
-
+        console.log("length:" + parameters.length)
         if (parameters.length > 4){
             temp = parameters[4].split("=");
             var now_movie_id2 = unescape(temp[1]);
