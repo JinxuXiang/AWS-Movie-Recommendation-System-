@@ -62,16 +62,26 @@ $(document).ready(function() {
 
         if (data.messages && data.messages.length > 0) {
           console.log('received ' + data.messages.length + ' messages');
-
+          document.getElementById("results").innerHTML = ""
           var messages = data.messages;
 
           for (var message of messages) {
             if (message.type === 'unstructured') {
+              infos = message.unstructured.text.split(",")
+              for(i=0;i<infos.length;i++){
+                if(infos[i].includes("movie_id")){
+                  var div = document.createElement('div');
+                  div.innerHTML = message.unstructured.text
+                  console.log(infos[i].substring(11))
+                  console.log(infos[i].substring(11).length)
+                  div.onclick = click_movie(parseInt(infos[i].substring(11)), "user")
+                  document.getElementById("results").appendChild(div);
+                }
+              }
               console.log(message.unstructured.text)
               insertResponseMessage(message.unstructured.text);
             } else if (message.type === 'structured' && message.structured.type === 'product') {
               var html = '';
-
               insertResponseMessage(message.structured.text);
 
               setTimeout(function() {
