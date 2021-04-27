@@ -18,3 +18,13 @@ function go_recommen(){
     }
 
 }
+
+function go_chatbot(){
+    if (location.search != ''){
+        window.location.href=html_id("./htmls/chat.html")
+    }
+    else{
+        window.location.href="./htmls/login.html"
+    }
+
+}

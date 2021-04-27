@@ -50,6 +50,12 @@
 #submit{
     height: 30px
 }
+#tag{
+    height: 30px
+}
+#submit_tag{
+    height: 30px
+}
 </style>
 
 
@@ -75,12 +81,25 @@
     </div> 
     <img src="../photos/movie.jpg" alt="Movie" width="1200" >
     <div class="subtitle" id="MovieRating">
-        Rating
+        
     </div>
     <div class="subtitle">
         <div id="textRating">Give a Rating to the Movie:</div>
         <input type="number" id="rating">
         <button type="button" id="submit" onclick=submit_rating()>Submit</button>
+    </div>
+    <div class="block">
+        <div class="title">
+            Movie Tags:
+        </div>
+        <div class="text" id="movie_tags">
+            There are currently no tags.
+        </div>
+    </div>
+    <div class="subtitle">
+        <div id="textRating">Give a Tag to the Movie:</div>
+        <input type="text" id="tag">
+        <button type="button" id="submit_tag" onclick=submit_tag()>Submit</button>
     </div>
     <div class="block">
         <div class="title">

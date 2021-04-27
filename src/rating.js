@@ -71,6 +71,8 @@ console.log(result);
 });
 
 
+
+
 var params = {movieId: now_movie_id};
 console.log(params)
 
@@ -101,6 +103,32 @@ console.log(result);
 });
 
 
+var params = {movieId: now_movie_id};
+console.log(params)
+
+apigClient.tagGet(params, {}, {}).then(function(result){
+
+    console.log("Tags")
+    console.log(result);
+    num_of_result = Object.keys(result["data"]).length
+    if (num_of_result > 0){
+        document.getElementById("movie_tags").innerHTML = ""
+    }
+    for (i = 0; i < Math.min(5, num_of_result); i++){
+        result_str = "result_" + i.toString()
+        now_data = result["data"][result_str]
+        var div = document.createElement('div');
+        div.innerHTML = now_data["tag"]
+        document.getElementById("movie_tags").appendChild(div);
+        
+    }
+}).catch(function(result){
+//This is where you would put an error callback
+console.log(result);
+});
+
+
+
 function click_rating(movieId, last_page){
     return function goto_movie(){
         window.location.href= "movie.html?" + "user=" + now_user_name + "&pass=" + now_user_pwd + "&movieId=" + movieId + "&lastPage=" + last_page
@@ -118,13 +146,26 @@ function submit_rating(){
 
         console.log("Rating")
         console.log(result);
-        
+        alert("Submitted Successfully!")
     }).catch(function(result){
     //This is where you would put an error callback
     console.log(result);
     });
 }
 
+function submit_tag(){
+    console.log("userId:", user_id)
+    params = {userId: user_id, movieId: now_movie_id, tag: document.getElementById("tag").value}
+    console.log(params)
+    apigClient.tagPost(params, {}, {}).then(function(result){
 
+        console.log("Tag")
+        console.log(result);
+        alert("Submitted Successfully!")
+    }).catch(function(result){
+    //This is where you would put an error callback
+    console.log(result);
+    });
+}
 
 
